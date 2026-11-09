@@ -1,0 +1,24 @@
+# PROTOTYPE: throwaway, answers "which API shape do callers write?"
+[package]
+name = "justftp"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[features]
+default = []
+tokio = ["dep:tokio"]
+
+[dependencies]
+tokio = { version = "1", features = ["net", "io-util", "fs"], optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["net", "io-util", "fs", "rt-multi-thread", "macros"] }
+
+[[example]]
+name = "b_async"
+required-features = ["tokio"]
+
+[[example]]
+name = "e_two_downloads_async"
+required-features = ["tokio"]
